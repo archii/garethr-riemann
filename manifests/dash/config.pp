@@ -18,10 +18,21 @@ class riemann::dash::config {
     }
     'RedHat', 'Amazon': {
       $gem_path = $riemann::params::gem_path
-      file { '/etc/init.d/riemann-dash':
-        ensure  => present,
-        mode    => '0755',
-        content => template('riemann/etc/init/riemann-dash.conf.redhat.erb'),
+      case $::operatingsystemmajrelease {
+        '7'     : {
+          file { '/usr/lib/systemd/system/riemann-dash.service':
+            ensure  => present,
+            mode    => '0644',
+            content => template('riemann/usr/lib/systemd/system/riemann-dash.service.erb'),
+          }
+        }
+        default : {
+          file { '/etc/init.d/riemann-dash':
+            ensure  => present,
+            mode    => '0755',
+            content => template('riemann/etc/init/riemann-dash.conf.redhat.erb'),
+          }
+        }
       }
     }
     default: {}
