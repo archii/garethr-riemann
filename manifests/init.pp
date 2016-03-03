@@ -26,6 +26,7 @@ class riemann(
   $host = $riemann::params::host,
   $port = $riemann::params::port,
   $user = $riemann::params::user,
+  $extra_jars = $riemann::params::extra_jars,
 ) inherits riemann::params {
 
   validate_absolute_path($config_file)
