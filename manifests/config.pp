@@ -3,6 +3,7 @@ class riemann::config {
   $port = $riemann::port
   $config_file = $riemann::config_file
   $user = $riemann::user
+  $extra_jars = $riemann::extra_jars
 
   case $::osfamily {
     'Debian': {
@@ -19,6 +20,11 @@ class riemann::config {
     'RedHat', 'Amazon': {
       case $::operatingsystemmajrelease {
         '7'     : {
+          file { '/etc/sysconfig/riemann':
+            ensure  => present,
+            mode    => '0644',
+            content => template('riemann/etc/sysconfig/riemann.erb'),
+          } ->
           file { '/usr/lib/systemd/system/riemann.service':
             ensure  => present,
             mode    => '0644',
