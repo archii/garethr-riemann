@@ -22,6 +22,7 @@
 #
 class riemann(
   $version = $riemann::params::version,
+  $install_source = $riemann::params::install_source,
   $config_file = $riemann::params::config_file,
   $host = $riemann::params::host,
   $port = $riemann::params::port,
