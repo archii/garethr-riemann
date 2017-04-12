@@ -1,5 +1,6 @@
 class riemann::params {
   $version = '0.2.4'
+  $install_source = 'https://github.com/riemann/riemann/releases/download/'
   $config_file = '/etc/riemann.sample.config'
   $dash_port = 4567
   $dash_host = 'localhost'
