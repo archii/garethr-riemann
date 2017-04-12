@@ -68,4 +68,8 @@ describe 'riemann::dash', :type => :class do
     it { should contain_file('/etc/init.d/riemann-dash').with_content(/\/usr\/local\/bin\/riemann-dash/)}
   end
 
+  context 'when running on CentOS 7' do
+    let(:facts) { {:osfamily => 'Redhat', :operatingsystem => 'CentOS', :operatingsystemmajrelease => '7'} }
+    it { should contain_file('/usr/lib/systemd/system/riemann-dash.service') }
+  end
 end

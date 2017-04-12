@@ -76,4 +76,8 @@ describe 'riemann', :type => :class do
     it { should contain_service('riemann').with_provider('redhat')}
   end
 
+  context 'when running on CentOS 7' do
+    let(:facts) { {:osfamily => 'Redhat', :operatingsystem => 'CentOS', :operatingsystemmajrelease => '7'} }
+    it { should contain_file('/usr/lib/systemd/system/riemann.service') }
+  end
 end
