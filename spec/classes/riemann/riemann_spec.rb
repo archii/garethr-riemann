@@ -80,4 +80,11 @@ describe 'riemann', :type => :class do
     let(:facts) { {:osfamily => 'Redhat', :operatingsystem => 'CentOS', :operatingsystemmajrelease => '7'} }
     it { should contain_file('/usr/lib/systemd/system/riemann.service') }
   end
+
+  context 'with install source "http://example.org/downloads"' do
+    let(:params) { {'install_source' => 'http://example.org/downloads'} }
+    it { should contain_class('riemann::install') }
+    it { should contain_exec('untar_riemann') }
+  end
+
 end
