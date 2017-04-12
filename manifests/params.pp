@@ -19,7 +19,10 @@ class riemann::params {
     }
     'RedHat', 'Amazon': {
       include epel
-      $service_provider = redhat
+      $service_provider = $::operatingsystemmajrelease ? {
+        '7' => systemd,
+        default => redhat
+      }
       $libxml_package = 'libxml2-devel'
       $libxslt_package = 'libxslt-devel'
       $gem_path = $::operatingsystemrelease ? {
