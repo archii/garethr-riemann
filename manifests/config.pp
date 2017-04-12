@@ -17,10 +17,24 @@ class riemann::config {
       }
     }
     'RedHat', 'Amazon': {
-      file { '/etc/init.d/riemann':
-        ensure  => present,
-        mode    => '0755',
-        content => template('riemann/etc/init/riemann.conf.redhat.erb')
+      case $::operatingsystemmajrelease {
+        '7'     : {
+          file { '/usr/lib/systemd/system/riemann.service':
+            ensure  => present,
+            mode    => '0644',
+            content => template('riemann/usr/lib/systemd/system/riemann.service.erb'),
+          }
+          ~> exec { '/bin/systemctl daemon-reload':
+            refreshonly => true,
+          }
+        }
+        default : {
+          file { '/etc/init.d/riemann':
+            ensure  => present,
+            mode    => '0755',
+            content => template('riemann/etc/init/riemann.conf.redhat.erb'),
+          }
+        }
       }
     }
     default: {}
