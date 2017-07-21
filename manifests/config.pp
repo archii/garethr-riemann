@@ -52,9 +52,11 @@ class riemann::config {
     owner  => $user,
   }
 
-  file { '/etc/puppet/riemann.yaml':
-    ensure  => present,
-    content => template('riemann/etc/puppet/riemann.yaml.erb')
+  if $::enable_puppet_reports {
+    file { '/etc/puppet/riemann.yaml':
+      ensure  => present,
+      content => template('riemann/etc/puppet/riemann.yaml.erb')
+    }
   }
 
   file { '/var/log/riemann.log':

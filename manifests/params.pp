@@ -7,6 +7,7 @@ class riemann::params {
   $dash_user = 'riemann-dash'
   $net_user = 'riemann-net'
   $health_user = 'riemann-health'
+  $enable_puppet_reports = false
   $port = 5555
   $host = 'localhost'
   $user = 'riemann'
