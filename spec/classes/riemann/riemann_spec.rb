@@ -39,6 +39,7 @@ describe 'riemann', :type => :class do
   end
 
   context 'without overriding the default host and port' do
+    let(:params) { {'enable_puppet_reports' => true} }
     it { should contain_file('/etc/puppet/riemann.yaml').with_content(/localhost/)}
     it { should contain_file('/etc/puppet/riemann.yaml').with_content(/5555/)}
   end

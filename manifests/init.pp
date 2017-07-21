@@ -23,6 +23,7 @@
 class riemann(
   $version = $riemann::params::version,
   $config_file = $riemann::params::config_file,
+  $enable_puppet_reports = $riemann::params::enable_puppet_reports,
   $host = $riemann::params::host,
   $port = $riemann::params::port,
   $user = $riemann::params::user,
