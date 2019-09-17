@@ -7,25 +7,22 @@
   "source": "git://github.com/garethr/garethr-riemann",
   "project_page": "https://github.com/garethr/garethr-riemann",
   "issues_url": "https://github.com/garethr/garethr-riemann/issues",
-  "requirements": [
-    {
-      "name": "puppet",
-      "version_requirement": "3.x"
-    }
-  ],
   "dependencies": [
     {
       "name": "puppetlabs/stdlib",
-      "version_requirement": ">= 4.1.0"
+      "version_requirement": ">= 0"
     },{
-      "name": "maestrodev/wget"
+      "name": "maestrodev/wget",
+      "version_requirement": ">= 0"
     },{
       "name": "stahnma/epel",
-      "version_requirement": ">= 0.0.6"
+      "version_requirement": ">= 0"
     },{
-      "name": "puppetlabs/java"
+      "name": "puppetlabs/java",
+      "version_requirement": ">= 0"
     },{
-      "name": "puppetlabs/gcc"
+      "name": "puppetlabs/gcc",
+      "version_requirement": ">= 0"
     }
   ]
 }
