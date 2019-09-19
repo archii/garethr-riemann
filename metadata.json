@@ -9,15 +9,20 @@
   "issues_url": "https://github.com/garethr/garethr-riemann/issues",
   "dependencies": [
     {
-      "name": "puppetlabs/stdlib"
+      "name": "puppetlabs/stdlib",
+      "version_requirement": ">= 0"
     },{
-      "name": "maestrodev/wget"
+      "name": "maestrodev/wget",
+      "version_requirement": ">= 0"
     },{
-      "name": "stahnma/epel"
+      "name": "stahnma/epel",
+      "version_requirement": ">= 0"
     },{
-      "name": "puppetlabs/java"
+      "name": "puppetlabs/java",
+      "version_requirement": ">= 0"
     },{
-      "name": "puppetlabs/gcc"
+      "name": "puppetlabs/gcc",
+      "version_requirement": ">= 0"
     }
   ]
 }
