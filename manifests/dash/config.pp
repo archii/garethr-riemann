@@ -1,4 +1,5 @@
 class riemann::dash::config {
+  $path = $riemann::dash::path
   $host = $riemann::dash::host
   $port = $riemann::dash::port
   $user = $riemann::dash::user
@@ -20,6 +21,7 @@ class riemann::dash::config {
       $gem_path = $riemann::params::gem_path
       case $::operatingsystemmajrelease {
         '7'     : {
+          notify {$path:}
           file { '/usr/lib/systemd/system/riemann-dash.service':
             ensure  => present,
             mode    => '0644',

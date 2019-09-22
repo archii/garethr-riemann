@@ -19,6 +19,7 @@
 #   The RVM Ruby version which should be used. Defaults to undef.
 #
 class riemann::dash(
+  $path = $riemann::params::dash_path,
   $host = $riemann::params::dash_host,
   $port = $riemann::params::dash_port,
   $user = $riemann::params::dash_user,
