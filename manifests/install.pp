@@ -10,7 +10,8 @@ class riemann::install {
       }
     }
     'RedHat', 'Amazon': {
-      ensure_resource('package', 'daemonize', {'ensure' => 'present' })
+      # ensure_resource('package', 'daemonize', {'ensure' => 'present' })
+      Package['daemonize'] -> Class['riemann::dash']
     }
     default: {}
   }
