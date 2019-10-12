@@ -19,13 +19,13 @@ class riemann::config {
     }
     'RedHat', 'Amazon': {
       case $::operatingsystemmajrelease {
-        '7'     : {
+        '7', '8'     : {
           file { '/etc/sysconfig/riemann':
             ensure  => present,
             mode    => '0644',
             content => template('riemann/etc/sysconfig/riemann.erb'),
-          } ->
-          file { '/usr/lib/systemd/system/riemann.service':
+          }
+          -> file { '/usr/lib/systemd/system/riemann.service':
             ensure  => present,
             mode    => '0644',
             content => template('riemann/usr/lib/systemd/system/riemann.service.erb'),
