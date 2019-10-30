@@ -21,7 +21,7 @@ class riemann::dash::config {
       $gem_path = $riemann::params::gem_path
       case $::operatingsystemmajrelease {
         '7','8'     : {
-          notify {$path:}
+          # notify {$path:}
           file { '/usr/lib/systemd/system/riemann-dash.service':
             ensure  => present,
             mode    => '0644',
