@@ -20,7 +20,7 @@ class riemann::dash::config {
     'RedHat', 'Amazon': {
       $gem_path = $riemann::params::gem_path
       case $::operatingsystemmajrelease {
-        '7'     : {
+        '7','8'     : {
           notify {$path:}
           file { '/usr/lib/systemd/system/riemann-dash.service':
             ensure  => present,
