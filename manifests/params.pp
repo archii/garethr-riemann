@@ -25,6 +25,7 @@ class riemann::params {
       include epel
       $service_provider = $::operatingsystemmajrelease ? {
         '7' => systemd,
+        '8' => systemd,
         default => redhat
       }
       $libxml_package = 'libxml2-devel'
